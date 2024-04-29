@@ -18,3 +18,15 @@ class AuthController {
 	@GetMapping("/auth")
 	fun index(@RequestParam("name") name: String) = "Hello, $name!"
 }
+
+@RestController
+class MessageController {
+	@GetMapping("/list")
+	fun index() = listOf(
+		Message("1", "Hello!"),
+		Message("2", "Bonjour!"),
+		Message("3", "สวัสดี!"),
+	)
+}
+
+data class Message(val id: String?, val text: String)
