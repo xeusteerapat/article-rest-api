@@ -3,7 +3,6 @@ package com.xeus.restApiAuthDemo.service
 import com.xeus.restApiAuthDemo.config.JwtProperties
 import io.jsonwebtoken.Claims
 import io.jsonwebtoken.Jwts
-import io.jsonwebtoken.security.Keys
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.stereotype.Service
 import java.util.Date
@@ -12,9 +11,8 @@ import java.util.Date
 class TokenService (
     jwtProperties: JwtProperties
 ){
-    private val secretKey = Keys.hmacShaKeyFor(
-        jwtProperties.key.toByteArray()
-    )
+
+    private val secretKey = Jwts.SIG.HS256.key().build();
 
     fun generate(
         userDetails: UserDetails,
