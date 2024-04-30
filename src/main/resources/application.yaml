@@ -2,3 +2,5 @@ jwt:
   key: ${JWT}
   access_token_expiration: 3600000
   refresh_token_expiration: 8640000
+server:
+  port: 80
