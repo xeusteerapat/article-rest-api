@@ -1,3 +1,6 @@
 package com.xeus.restApiAuthDemo.controller.auth
 
-data class AuthenticationRequest()
+data class AuthenticationRequest(
+    val email: String,
+    val password: String
+)
